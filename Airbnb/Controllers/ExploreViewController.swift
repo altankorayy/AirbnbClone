@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ExploreViewController: UIViewController {
     
@@ -26,13 +27,27 @@ class ExploreViewController: UIViewController {
         exploreTableView.delegate = self
         exploreTableView.dataSource = self
         
-        pushRegisterVC()
+        configureNavigationBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if Auth.auth().currentUser == nil {
+            pushRegisterVC()
+        }
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         exploreTableView.frame = view.bounds
+    }
+    
+    private func configureNavigationBar() {
+        let logo = UIImage(named: "airbnb2")
+        let imageView = UIImageView(image: logo)
+        navigationItem.titleView = imageView
     }
     
     private func pushRegisterVC() {

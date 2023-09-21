@@ -12,6 +12,7 @@ import FirebaseAuth
 
 class RegisterViewModel {
     
+    let usernameRelay = BehaviorRelay<String>(value: "")
     let emailRelay = BehaviorRelay<String>(value: "")
     let passwordRelay = BehaviorRelay<String>(value: "")
     
@@ -19,12 +20,21 @@ class RegisterViewModel {
     let loading: PublishSubject<Bool> = PublishSubject()
     let error: PublishSubject<String> = PublishSubject()
     
+    //MARK: -Making observable object for BehaviorRelay
+    var usernameObservable: Observable<String> {
+        return usernameRelay.asObservable()
+    }
+    
     var emailObservable: Observable<String> {
         return emailRelay.asObservable()
     }
     
     var passwordObservable: Observable<String> {
         return passwordRelay.asObservable()
+    }
+    
+    func updateUsername(_ username: String) {
+        usernameRelay.accept(username)
     }
     
     func updateEmail(_ email: String) {
@@ -37,10 +47,12 @@ class RegisterViewModel {
     
     func registerUser() {
         loading.onNext(true)
+        
+        let username = usernameRelay.value
         let email = emailRelay.value
         let password = passwordRelay.value
         
-        AuthManager.shared.registerUser(email: email, password: password) { [weak self] completed, error in
+        AuthManager.shared.registerUser(username: username, email: email, password: password) { [weak self] completed, error in
             self?.loading.onNext(false)
             if let error = error {
                 self?.error.onNext(error)

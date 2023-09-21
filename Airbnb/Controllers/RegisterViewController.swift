@@ -117,9 +117,11 @@ class RegisterViewController: UIViewController {
     }
     
     func setupBindings() {
+        let usernameTextObservable = usernameTextField.rx.text.orEmpty.asObservable()
         let emailTextObservable = emailTextField.rx.text.orEmpty.asObservable()
         let passwordTextObservable = passwordTextField.rx.text.orEmpty.asObservable()
         
+        usernameTextObservable.bind(to: viewModel.usernameRelay).disposed(by: bag)
         emailTextObservable.bind(to: viewModel.emailRelay).disposed(by: bag)
         passwordTextObservable.bind(to: viewModel.passwordRelay).disposed(by: bag)
         
@@ -142,7 +144,7 @@ class RegisterViewController: UIViewController {
     }
     
     @objc private func didTapRegisterButton() {
-        guard let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
+        guard let username = usernameTextField.text, !username.isEmpty, let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
             makeAlert(title: "Error", message: "Please fill all the fields.")
             return
         }
