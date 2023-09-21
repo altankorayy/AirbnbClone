@@ -36,6 +36,8 @@ class RegisterViewController: UIViewController {
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textField.frame.height))
         textField.leftView = paddingView
         textField.leftViewMode = .always
+        textField.autocapitalizationType = .none
+        textField.autocorrectionType = .no
         return textField
     }()
     
@@ -50,6 +52,8 @@ class RegisterViewController: UIViewController {
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textField.frame.height))
         textField.leftView = paddingView
         textField.leftViewMode = .always
+        textField.autocapitalizationType = .none
+        textField.autocorrectionType = .no
         return textField
     }()
     
@@ -125,7 +129,7 @@ class RegisterViewController: UIViewController {
         emailTextObservable.bind(to: viewModel.emailRelay).disposed(by: bag)
         passwordTextObservable.bind(to: viewModel.passwordRelay).disposed(by: bag)
         
-        viewModel.loading.bind(to: self.spinnerView.rx.isAnimating).disposed(by: bag)
+        viewModel.loading.bind(to: spinnerView.rx.isAnimating).disposed(by: bag)
         
         viewModel.error.observe(on: MainScheduler.instance).subscribe { [weak self] errorString in
             self?.makeAlert(title: "Error", message: errorString)
