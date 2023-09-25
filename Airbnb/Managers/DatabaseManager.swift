@@ -40,4 +40,15 @@ class DatabaseManager {
             
         }
     }
+    
+    func uploadRentHouseInfo(url: String, title: String, price: String, desc: String, email: String, completion: @escaping(Bool, String?) -> Void) {
+        let houseData: [String: Any] = ["url": url, "title": title, "price": price, "desc": desc, "email": email]
+        database.collection("houses").addDocument(data: houseData) { error in
+            guard error == nil else {
+                completion(false, error?.localizedDescription)
+                return
+            }
+            completion(true, nil)
+        }
+    }
 }

@@ -20,7 +20,7 @@ class RegisterViewModel {
     let loading: PublishSubject<Bool> = PublishSubject()
     let error: PublishSubject<String> = PublishSubject()
     
-    //MARK: -Making observable object for BehaviorRelay
+    //MARK: - Making observable object for BehaviorRelay
     var usernameObservable: Observable<String> {
         return usernameRelay.asObservable()
     }

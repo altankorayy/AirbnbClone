@@ -16,6 +16,9 @@
 		E11025DB2AB89D78008B6567 /* ExploreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11025DA2AB89D78008B6567 /* ExploreTableViewCell.swift */; };
 		E123AD812ABA016A009B0CEB /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = E123AD802ABA016A009B0CEB /* RxCocoa */; };
 		E123AD832ABA016A009B0CEB /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E123AD822ABA016A009B0CEB /* RxSwift */; };
+		E125F7772ABDD07700F4907C /* RentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E125F7762ABDD07700F4907C /* RentViewController.swift */; };
+		E1495FA62ABE0766005C4108 /* RentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1495FA52ABE0766005C4108 /* RentViewModel.swift */; };
+		E1495FA82ABE0E51005C4108 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1495FA72ABE0E51005C4108 /* StorageManager.swift */; };
 		E15621B92ABC7B4900F8C3CA /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15621B82ABC7B4900F8C3CA /* DatabaseManager.swift */; };
 		E15621BB2ABC7BF300F8C3CA /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15621BA2ABC7BF300F8C3CA /* ProfileViewModel.swift */; };
 		E16313772AB9C7A000F65F60 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16313762AB9C7A000F65F60 /* LoginViewController.swift */; };
@@ -41,6 +44,9 @@
 		E11025D52AB87FE1008B6567 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		E11025D72AB88004008B6567 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E11025DA2AB89D78008B6567 /* ExploreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTableViewCell.swift; sourceTree = "<group>"; };
+		E125F7762ABDD07700F4907C /* RentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentViewController.swift; sourceTree = "<group>"; };
+		E1495FA52ABE0766005C4108 /* RentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentViewModel.swift; sourceTree = "<group>"; };
+		E1495FA72ABE0E51005C4108 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		E15621B82ABC7B4900F8C3CA /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		E15621BA2ABC7BF300F8C3CA /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		E16313762AB9C7A000F65F60 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +84,7 @@
 			children = (
 				E10473572ABAED5400EF9464 /* AuthManager.swift */,
 				E15621B82ABC7B4900F8C3CA /* DatabaseManager.swift */,
+				E1495FA72ABE0E51005C4108 /* StorageManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -88,6 +95,7 @@
 				E104735A2ABAF15600EF9464 /* RegisterViewModel.swift */,
 				E18543192ABB2A6C006E357E /* LoginViewModel.swift */,
 				E15621BA2ABC7BF300F8C3CA /* ProfileViewModel.swift */,
+				E1495FA52ABE0766005C4108 /* RentViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -151,6 +159,7 @@
 				E102A2112AB9BA1B00DEB6F9 /* RegisterViewController.swift */,
 				E16313762AB9C7A000F65F60 /* LoginViewController.swift */,
 				E1812FB72AB87E19006DE3B0 /* TabBarController.swift */,
+				E125F7762ABDD07700F4907C /* RentViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -239,9 +248,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1495FA82ABE0E51005C4108 /* StorageManager.swift in Sources */,
 				E16313772AB9C7A000F65F60 /* LoginViewController.swift in Sources */,
 				E11025D82AB88005008B6567 /* ProfileViewController.swift in Sources */,
 				E15621B92ABC7B4900F8C3CA /* DatabaseManager.swift in Sources */,
+				E1495FA62ABE0766005C4108 /* RentViewModel.swift in Sources */,
 				E11025D42AB87F9B008B6567 /* ExploreViewController.swift in Sources */,
 				E1812FB82AB87E19006DE3B0 /* TabBarController.swift in Sources */,
 				E104735B2ABAF15600EF9464 /* RegisterViewModel.swift in Sources */,
@@ -252,6 +263,7 @@
 				E185431A2ABB2A6C006E357E /* LoginViewModel.swift in Sources */,
 				E11025D62AB87FE1008B6567 /* MapViewController.swift in Sources */,
 				E1812FB62AB87E19006DE3B0 /* SceneDelegate.swift in Sources */,
+				E125F7772ABDD07700F4907C /* RentViewController.swift in Sources */,
 				E10473582ABAED5400EF9464 /* AuthManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,6 +418,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -433,6 +446,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

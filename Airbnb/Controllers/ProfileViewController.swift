@@ -78,6 +78,7 @@ class ProfileViewController: UIViewController {
         view.addSubview(spinnerView)
         
         logoutButton.addTarget(self, action: #selector(didTapLogoutButton), for: .touchUpInside)
+        rentHomeButton.addTarget(self, action: #selector(didTapRentButton), for: .touchUpInside)
         
         setConstraints()
     }
@@ -91,6 +92,7 @@ class ProfileViewController: UIViewController {
     private func setupNavigation() {
         title = "Profile"
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.tintColor = UIColor(red: 232/255, green: 28/255, blue: 84/255, alpha: 1)
     }
     
     func setupBindings() {
@@ -103,6 +105,12 @@ class ProfileViewController: UIViewController {
         }.disposed(by: bag)
         
         viewModel.fetchedUsername.bind(to: usernameLabel.rx.text).disposed(by: bag)
+    }
+    
+    @objc private func didTapRentButton() {
+        let rentVC = RentViewController()
+        rentVC.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(rentVC, animated: true)
     }
     
     @objc private func didTapLogoutButton() {
