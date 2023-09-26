@@ -7,6 +7,8 @@
 
 import UIKit
 import FirebaseAuth
+import RxSwift
+import RxCocoa
 
 class ExploreViewController: UIViewController {
     
@@ -18,17 +20,30 @@ class ExploreViewController: UIViewController {
         tableView.separatorStyle = .none
         return tableView
     }()
+    
+    private let spinnerView: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView()
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.color = UIColor.black
+        spinner.style = .medium
+        return spinner
+    }()
+    
+    private let viewModel = ExploreViewModel()
+    let bag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = .systemBackground
         view.addSubview(exploreTableView)
+        view.addSubview(spinnerView)
         
-        exploreTableView.delegate = self
-        exploreTableView.dataSource = self
+        exploreTableView.rx.setDelegate(self).disposed(by: bag)
         
+        setConstraints()
         configureNavigationBar()
+        setupBindings()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,12 +52,25 @@ class ExploreViewController: UIViewController {
         if Auth.auth().currentUser == nil {
             pushRegisterVC()
         }
+        
+        viewModel.fetchRentHouseInfo()
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         exploreTableView.frame = view.bounds
+    }
+    
+    private func setupBindings() {
+        viewModel.loading.bind(to: spinnerView.rx.isAnimating).disposed(by: bag)
+        viewModel.error.observe(on: MainScheduler.instance).subscribe { errorString in
+            print(errorString)
+        }.disposed(by: bag)
+        viewModel.houseModelSubject.observe(on: MainScheduler.instance)
+            .bind(to: exploreTableView.rx.items(cellIdentifier: ExploreTableViewCell.identifier, cellType: ExploreTableViewCell.self)) { row, item, cell in
+            cell.item = item
+        }.disposed(by: bag)
     }
     
     private func configureNavigationBar() {
@@ -55,21 +83,18 @@ class ExploreViewController: UIViewController {
         let registerVC = UINavigationController(rootViewController: RegisterViewController())
         present(registerVC, animated: true)
     }
+    
+    private func setConstraints() {
+        let spinnerViewConstraints = [
+        spinnerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        spinnerView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ]
+        NSLayoutConstraint.activate(spinnerViewConstraints)
+    }
 
 }
 
-extension ExploreViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ExploreTableViewCell.identifier, for: indexPath) as? ExploreTableViewCell else {
-            return UITableViewCell()
-        }
-        return cell
-    }
-    
+extension ExploreViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 400
     }

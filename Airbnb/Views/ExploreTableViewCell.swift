@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ExploreTableViewCell: UITableViewCell {
 
@@ -24,7 +25,6 @@ class ExploreTableViewCell: UITableViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Laya Bungalow"
         label.font = .systemFont(ofSize: 16, weight: .regular)
         label.textAlignment = .left
         label.textColor = .label
@@ -34,7 +34,6 @@ class ExploreTableViewCell: UITableViewCell {
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Luxury bungalow you have ever seen. Please contact for any details."
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textAlignment = .left
         label.textColor = .secondaryLabel
@@ -45,7 +44,6 @@ class ExploreTableViewCell: UITableViewCell {
     private let priceLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "$127 night"
         label.font = .systemFont(ofSize: 14, weight: .bold)
         label.textAlignment = .left
         label.textColor = .label
@@ -59,8 +57,18 @@ class ExploreTableViewCell: UITableViewCell {
         addSubview(titleLabel)
         addSubview(descriptionLabel)
         addSubview(priceLabel)
-        
         setConstraints()
+    }
+    
+    public var item: HouseModel! {
+        didSet {
+            guard let url = item.imageUrl else { return }
+            let imageUrl = URL(string: url)
+            titleLabel.text = item.title
+            priceLabel.text = item.price
+            descriptionLabel.text = item.description
+            houseImageView.sd_setImage(with: imageUrl)
+        }
     }
     
     required init?(coder: NSCoder) {

@@ -131,8 +131,6 @@ class RentViewController: UIViewController {
         titleTextObservable.bind(to: viewModel.titleRelay).disposed(by: bag)
         priceTextObservable.bind(to: viewModel.priceRelay).disposed(by: bag)
         descTextObservable.bind(to: viewModel.descRelay).disposed(by: bag)
-        imageRX.bind(to: selectPhotoImage).disposed(by: bag)
-        viewModel.imageRelay.bind(to: selectPhotoImage).disposed(by: bag)
         
         viewModel.loading.bind(to: spinnerView.rx.isAnimating).disposed(by: bag)
         viewModel.error.observe(on: MainScheduler.instance).subscribe { [weak self] errorString in
@@ -141,6 +139,7 @@ class RentViewController: UIViewController {
         viewModel.didFinishUpload.observe(on: MainScheduler.instance).subscribe { [weak self] completed in
             self?.makeAlert(title: "Success", message: "")
         }.disposed(by: bag)
+        imageRX.bind(to: selectPhotoImage).disposed(by: bag)
     }
     
     private func setupNavigationBar() {
@@ -253,6 +252,7 @@ extension RentViewController: UIImagePickerControllerDelegate, UINavigationContr
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let selectedImage = info[.editedImage] as? UIImage else { return }
         self.imageRX.onNext(selectedImage)
+        viewModel.imageRelay.accept(selectedImage)
         dismiss(animated: true, completion: nil)
     }
 }

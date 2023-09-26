@@ -51,4 +51,29 @@ class DatabaseManager {
             completion(true, nil)
         }
     }
+    
+    func fetchRentHouseInfo(completion: @escaping(Result<[HouseModel], Error>) -> Void) {
+        var houseModel = [HouseModel]()
+        
+        database.collection("houses").getDocuments { querySnapshot, error in
+            guard error == nil else {
+                completion(.failure(FirebaseError.getDocumentError))
+                return
+            }
+            
+            for document in querySnapshot?.documents ?? [] {
+                guard let title = document.get("title") as? String,
+                    let price = document.get("price") as? String,
+                    let desc = document.get("desc") as? String,
+                    let imageUrl = document.get("url") as? String else {
+                        continue
+                }
+                
+                let model = HouseModel(title: title, price: price, description: desc, imageUrl: imageUrl)
+                houseModel.append(model)
+            }
+            
+            completion(.success(houseModel))
+        }
+    }
 }
