@@ -44,7 +44,6 @@ class RentViewModel {
                     switch result {
                     case .success(let url):
                         let urlString = url.absoluteString
-                        
                         DatabaseManager.shared.uploadRentHouseInfo(url: urlString, title: title, price: price, desc: desc, email: email) { success, errorString in
                             if let error = errorString {
                                 self?.error.onNext(error)

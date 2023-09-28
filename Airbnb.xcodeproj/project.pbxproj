@@ -17,6 +17,8 @@
 		E123AD812ABA016A009B0CEB /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = E123AD802ABA016A009B0CEB /* RxCocoa */; };
 		E123AD832ABA016A009B0CEB /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E123AD822ABA016A009B0CEB /* RxSwift */; };
 		E125F7772ABDD07700F4907C /* RentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E125F7762ABDD07700F4907C /* RentViewController.swift */; };
+		E13B9F932AC5A98300347FA3 /* CoordinateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13B9F922AC5A98300347FA3 /* CoordinateModel.swift */; };
+		E13B9F952AC5AACC00347FA3 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13B9F942AC5AACC00347FA3 /* MapViewModel.swift */; };
 		E1495FA62ABE0766005C4108 /* RentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1495FA52ABE0766005C4108 /* RentViewModel.swift */; };
 		E1495FA82ABE0E51005C4108 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1495FA72ABE0E51005C4108 /* StorageManager.swift */; };
 		E149A1FE2AC328580046C5BA /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = E149A1FD2AC328580046C5BA /* SDWebImage */; };
@@ -38,6 +40,8 @@
 		E1812FBD2AB87E1B006DE3B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1812FBC2AB87E1B006DE3B0 /* Assets.xcassets */; };
 		E1812FC02AB87E1B006DE3B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1812FBE2AB87E1B006DE3B0 /* LaunchScreen.storyboard */; };
 		E185431A2ABB2A6C006E357E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18543192ABB2A6C006E357E /* LoginViewModel.swift */; };
+		E188AA2B2AC4166800732E2D /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E188AA2A2AC4166800732E2D /* LocationViewController.swift */; };
+		E188AA2D2AC4331800732E2D /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E188AA2C2AC4331800732E2D /* LocationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +53,8 @@
 		E11025D72AB88004008B6567 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E11025DA2AB89D78008B6567 /* ExploreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTableViewCell.swift; sourceTree = "<group>"; };
 		E125F7762ABDD07700F4907C /* RentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentViewController.swift; sourceTree = "<group>"; };
+		E13B9F922AC5A98300347FA3 /* CoordinateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateModel.swift; sourceTree = "<group>"; };
+		E13B9F942AC5AACC00347FA3 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		E1495FA52ABE0766005C4108 /* RentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentViewModel.swift; sourceTree = "<group>"; };
 		E1495FA72ABE0E51005C4108 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		E15621B82ABC7B4900F8C3CA /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
@@ -66,6 +72,8 @@
 		E1812FBF2AB87E1B006DE3B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E1812FC12AB87E1B006DE3B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E18543192ABB2A6C006E357E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		E188AA2A2AC4166800732E2D /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		E188AA2C2AC4331800732E2D /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +109,12 @@
 			isa = PBXGroup;
 			children = (
 				E1709EE82AC1CA9A0067C150 /* ExploreViewModel.swift */,
+				E13B9F942AC5AACC00347FA3 /* MapViewModel.swift */,
 				E15621BA2ABC7BF300F8C3CA /* ProfileViewModel.swift */,
 				E104735A2ABAF15600EF9464 /* RegisterViewModel.swift */,
 				E18543192ABB2A6C006E357E /* LoginViewModel.swift */,
 				E1495FA52ABE0766005C4108 /* RentViewModel.swift */,
+				E188AA2C2AC4331800732E2D /* LocationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -121,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				E1709EE62AC1C7E40067C150 /* HouseModel.swift */,
+				E13B9F922AC5A98300347FA3 /* CoordinateModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -178,6 +189,7 @@
 				E16313762AB9C7A000F65F60 /* LoginViewController.swift */,
 				E1812FB72AB87E19006DE3B0 /* TabBarController.swift */,
 				E125F7762ABDD07700F4907C /* RentViewController.swift */,
+				E188AA2A2AC4166800732E2D /* LocationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -273,17 +285,21 @@
 				E16313772AB9C7A000F65F60 /* LoginViewController.swift in Sources */,
 				E11025D82AB88005008B6567 /* ProfileViewController.swift in Sources */,
 				E15621B92ABC7B4900F8C3CA /* DatabaseManager.swift in Sources */,
+				E188AA2D2AC4331800732E2D /* LocationViewModel.swift in Sources */,
 				E1495FA62ABE0766005C4108 /* RentViewModel.swift in Sources */,
 				E11025D42AB87F9B008B6567 /* ExploreViewController.swift in Sources */,
 				E1812FB82AB87E19006DE3B0 /* TabBarController.swift in Sources */,
 				E104735B2ABAF15600EF9464 /* RegisterViewModel.swift in Sources */,
 				E15621BB2ABC7BF300F8C3CA /* ProfileViewModel.swift in Sources */,
 				E102A2122AB9BA1B00DEB6F9 /* RegisterViewController.swift in Sources */,
+				E13B9F952AC5AACC00347FA3 /* MapViewModel.swift in Sources */,
+				E13B9F932AC5A98300347FA3 /* CoordinateModel.swift in Sources */,
 				E1812FB42AB87E19006DE3B0 /* AppDelegate.swift in Sources */,
 				E11025DB2AB89D78008B6567 /* ExploreTableViewCell.swift in Sources */,
 				E185431A2ABB2A6C006E357E /* LoginViewModel.swift in Sources */,
 				E11025D62AB87FE1008B6567 /* MapViewController.swift in Sources */,
 				E1709EE72AC1C7E40067C150 /* HouseModel.swift in Sources */,
+				E188AA2B2AC4166800732E2D /* LocationViewController.swift in Sources */,
 				E1812FB62AB87E19006DE3B0 /* SceneDelegate.swift in Sources */,
 				E125F7772ABDD07700F4907C /* RentViewController.swift in Sources */,
 				E1709EE92AC1CA9A0067C150 /* ExploreViewModel.swift in Sources */,

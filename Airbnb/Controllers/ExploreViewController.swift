@@ -96,6 +96,6 @@ class ExploreViewController: UIViewController {
 
 extension ExploreViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 400
+        return 410
     }
 }

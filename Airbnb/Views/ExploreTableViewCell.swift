@@ -96,7 +96,8 @@ class ExploreTableViewCell: UITableViewCell {
         
         let priceLabelConstraints = [
             priceLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 5),
-            priceLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
+            priceLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            priceLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
         ]
         
         NSLayoutConstraint.activate(houseImageViewConstraints)

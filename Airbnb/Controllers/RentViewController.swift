@@ -138,14 +138,27 @@ class RentViewController: UIViewController {
         }.disposed(by: bag)
         viewModel.didFinishUpload.observe(on: MainScheduler.instance).subscribe { [weak self] completed in
             self?.makeAlert(title: "Success", message: "")
+            self?.titleTextField.text = ""
+            self?.priceTextField.text = ""
+            self?.descTextView.text = ""
+            self?.selectPhotoImage.image = UIImage(named: "select")
         }.disposed(by: bag)
         imageRX.bind(to: selectPhotoImage).disposed(by: bag)
     }
     
     private func setupNavigationBar() {
         let postButton = UIBarButtonItem(title: "Post", style: .plain, target: self, action: #selector(didTapPostButton))
-        navigationItem.rightBarButtonItem = postButton
-        navigationController?.navigationBar.tintColor = UIColor(red: 232/255, green: 28/255, blue: 84/255, alpha: 1)
+        let locationButton = UIBarButtonItem(title: "Location", style: .plain, target: self, action: #selector(didTapLocationButton))
+        postButton.tintColor = UIColor(red: 232/255, green: 28/255, blue: 84/255, alpha: 1)
+        locationButton.tintColor = UIColor(red: 232/255, green: 28/255, blue: 84/255, alpha: 1)
+        navigationItem.rightBarButtonItems = [postButton, locationButton]
+        navigationController?.navigationBar.tintColor = .label
+    }
+    
+    @objc private func didTapLocationButton() {
+        let locationVC = UINavigationController(rootViewController: LocationViewController())
+        locationVC.modalTransitionStyle = .crossDissolve
+        present(locationVC, animated: true, completion: nil)
     }
     
     @objc private func didTapUploadPhoto() {
