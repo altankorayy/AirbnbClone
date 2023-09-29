@@ -11,3 +11,12 @@
 ![9-portrait](https://github.com/altankorayy/AirbnbClone/assets/67483357/87dce035-7761-45e2-88b9-6a32b010585f)
 ![11-portrait](https://github.com/altankorayy/AirbnbClone/assets/67483357/26c6283c-c296-4170-9481-d04e592a0a54)
 ![13-portrait](https://github.com/altankorayy/AirbnbClone/assets/67483357/fb4a00e6-f8a7-4a6f-a9f1-efa77a3debc2)
+
+Tech Used <br />
+• 🗂️ MVVM <br />
+• 💿 CoreData <br />
+• ▶️ Youtube & TMDB Api <br />
+• ✂️ Custom TableView & CollectionView & NavigationController <br />
+• 🖼️ SDWebImage <br />
+• 📐 Programmatic Constraints <br />
+•  UIKit with no Storyboard <br />
