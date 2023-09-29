@@ -107,6 +107,7 @@ extension MapViewController: MKMapViewDelegate {
             
             let detailButton = UIButton(type: UIButton.ButtonType.detailDisclosure)
             pinView?.rightCalloutAccessoryView = detailButton
+            
         } else {
             pinView?.annotation = annotation
         }
