@@ -39,7 +39,7 @@
 
 <div class="row">
   <img src="https://github.com/altankorayy/AirbnbClone/assets/67483357/9374ea61-f0fb-455a-80c0-cab3c3491f64" width="390" height="800" class="col-md-6">
-  <img src="https://github.com/altankorayy/AirbnbClone/assets/67483357/4a4a8ca6-40ce-4dc3-a4d2-6ee9f409d54a" width="390" height="800" class="col-md-6">
+  <img src="https://github.com/altankorayy/AirbnbClone/assets/67483357/e6a41074-e12e-493b-a33a-46ba9194a6af" width="390" height="800" class="col-md-6">
 </div>
 
 <div class="row">
