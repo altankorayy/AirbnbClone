@@ -1,8 +1,8 @@
 # AirbnbClone
 
 <div class="row">
-  <img src="https://github.com/altankorayy/AirbnbClone/assets/67483357/3bf48b4e-f387-4aba-92ff-5e6a241f3d65" width="390" height="800" class="col-md-6">
-  <img src="https://github.com/altankorayy/AirbnbClone/assets/67483357/16ad9852-914a-49af-b373-9014ccc9257a" width="390" height="800" class="col-md-6">
+  <img src="https://github.com/altankorayy/AirbnbClone/assets/67483357/3bf48b4e-f387-4aba-92ff-5e6a241f3d65" width="400" height="800" class="col-md-6">
+  <img src="https://github.com/altankorayy/AirbnbClone/assets/67483357/16ad9852-914a-49af-b373-9014ccc9257a" width="400" height="800" class="col-md-6">
 </div>
 
 ## Tech Used
