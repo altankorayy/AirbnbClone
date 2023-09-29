@@ -117,6 +117,22 @@ extension MapViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        guard let annotation = view.annotation as? MKPointAnnotation else { return }
+        
+        let destinationCoordinate = annotation.coordinate
+        let requestLocation = CLLocation(latitude: destinationCoordinate.latitude, longitude: destinationCoordinate.longitude)
+        
+        CLGeocoder().reverseGeocodeLocation(requestLocation) { placemarks, error in
+            guard let placemark = placemarks else { return }
+            
+            if placemark.count > 0 {
+                let newPlacemark = MKPlacemark(placemark: placemark[0])
+                let item = MKMapItem(placemark: newPlacemark)
+                let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+                item.name = "Airbnb House"
+                item.openInMaps(launchOptions: launchOptions)
+            }
+        }
         
     }
 }
